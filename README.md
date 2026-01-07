@@ -48,7 +48,7 @@ extract_orders     ──▶ transform_and_load_orders
 
 ##  ETL Details
 
-### 1️ Extract (PostgreSQL)
+### 1️. Extract (PostgreSQL)
 Data diekstrak dari schema `raw_data` dengan filter incremental:
 - `updated_at >= CURRENT_DATE - INTERVAL '1 day'`
 
@@ -61,7 +61,7 @@ Data hasil extract disimpan sementara menggunakan **XCom**.
 
 ---
 
-### 2️ Transform & Load
+### 2️. Transform & Load
 
 #### Customers → `dim_customers`
 Transformasi:
