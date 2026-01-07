@@ -103,18 +103,6 @@ Pastikan connection berikut sudah tersedia di Airflow:
 
 ---
 
-## 🧪 Testing Strategy (Tanpa Dataset Disediakan)
-Karena dataset tidak disediakan, pendekatan testing:
-1. **Design schema** berdasarkan asumsi bisnis
-2. Populate dummy data ke PostgreSQL (manual / script SQL)
-3. Jalankan DAG secara manual via Airflow UI
-4. Validasi hasil load di MySQL
-
-Pipeline juga aman dijalankan walaupun:
-- Tidak ada data baru (logging: `No data to process`)
-
----
-
 ## 🛠️ Tech Stack
 - Apache Airflow
 - PostgreSQL
