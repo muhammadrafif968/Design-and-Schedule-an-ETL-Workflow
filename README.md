@@ -1,6 +1,6 @@
 # Postgres to MySQL ETL Pipeline (Airflow)
 
-## 📌 Overview
+##  Overview
 Project ini merupakan implementasi **ETL (Extract, Transform, Load)** menggunakan **Apache Airflow**.
 
 Pipeline ini melakukan:
@@ -12,7 +12,7 @@ Project ini dibuat sebagai bagian dari assignment **“Design and Schedule an ET
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 **Source**: PostgreSQL  
 **Orchestrator**: Apache Airflow  
@@ -31,7 +31,7 @@ Setiap entity diproses secara **independen dan paralel**:
 
 ---
 
-## 🗂️ DAG Structure
+##  DAG Structure
 
 DAG Name: `postgres_to_mysql_etl`  
 Schedule: **Setiap 6 jam**  
@@ -46,9 +46,9 @@ extract_orders     ──▶ transform_and_load_orders
 
 ---
 
-## 🔄 ETL Details
+##  ETL Details
 
-### 1️⃣ Extract (PostgreSQL)
+### 1️ Extract (PostgreSQL)
 Data diekstrak dari schema `raw_data` dengan filter incremental:
 - `updated_at >= CURRENT_DATE - INTERVAL '1 day'`
 
@@ -61,9 +61,9 @@ Data hasil extract disimpan sementara menggunakan **XCom**.
 
 ---
 
-### 2️⃣ Transform & Load
+### 2️ Transform & Load
 
-#### 🧑 Customers → `dim_customers`
+#### Customers → `dim_customers`
 Transformasi:
 - Phone number → format `(XXX) XXX-XXXX`
 - State code → uppercase
@@ -73,7 +73,7 @@ Load:
 
 ---
 
-#### 📦 Products → `dim_products`
+#### Products → `dim_products`
 Transformasi:
 - Margin (%) = `((price - cost) / price) * 100`
 - Category → Title Case
@@ -83,7 +83,7 @@ Load:
 
 ---
 
-#### 🧾 Orders → `fact_orders`
+#### Orders → `fact_orders`
 Transformasi:
 - Order status → lowercase
 - `total_amount` negatif → diset ke 0 + warning log
@@ -93,7 +93,7 @@ Load:
 
 ---
 
-## ⚙️ Airflow Connections
+## Airflow Connections
 Pastikan connection berikut sudah tersedia di Airflow:
 
 | Connection ID | Type        |
@@ -103,7 +103,7 @@ Pastikan connection berikut sudah tersedia di Airflow:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - Apache Airflow
 - PostgreSQL
 - MySQL
@@ -112,14 +112,14 @@ Pastikan connection berikut sudah tersedia di Airflow:
 
 ---
 
-## 📌 Notes
+## Notes
 - Pipeline dirancang modular dan scalable
 - Setiap entity diproses secara independen
 - Logging dan error handling sudah disiapkan untuk production-like scenario
 
 ---
 
-## 👤 Author
+## Author
 **Muhammad Rafif**  
 Data / Analytics Engineer Enthusiast
 
