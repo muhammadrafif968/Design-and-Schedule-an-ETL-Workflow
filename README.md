@@ -121,5 +121,5 @@ Pastikan connection berikut sudah tersedia di Airflow:
 
 ## Author
 **Muhammad Rafif**  
-Data / Analytics Engineer Enthusiast
+Data Analytics / Engineer Enthusiast
 
